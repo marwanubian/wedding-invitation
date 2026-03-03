@@ -205,7 +205,7 @@ time-box{
 
 
 <script>
- //Countdown 
+  // Countdown 
    const weddingDate = new Date("March 23, 2026 20:00:00").getTime(); 
    setInterval(()=>{ const now = new Date().getTime(); const distance = weddingDate - now; if(distance < 0){ document.querySelector(".countdown").innerHTML="🎉..الحمدلله تم الزفاف 🎉"; return; }
    document.getElementById("days").innerText=Math.floor(distance/(1000*60*60*24)); 
@@ -310,5 +310,3 @@ function renderPagination(total){
 loadComments();</script>
 </body>
 </html>
-
-
