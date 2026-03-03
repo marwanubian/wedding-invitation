@@ -4,190 +4,302 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>دعوة زفاف أمجد ومروة</title>
+<link rel="icon" href="favicon.png" type="image/png">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Cairo',sans-serif;height:100vh;overflow:hidden;background:#f8f0f4}
-.container{display:flex;height:100vh}
-.left{flex:1;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('img.jpeg') center/cover no-repeat;color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px}
-.left h1{font-family:'Playfair Display',serif;font-size:48px;margin-bottom:10px}
-.left p{font-size:20px;margin-bottom:10px}
-.countdown{display:flex;gap:15px;margin-top:30px;flex-wrap:wrap;justify-content:center}
-.time-box{background:white;color:#B6814C;padding:15px;border-radius:12px;min-width:80px;text-align:center}
-.time-box h2{font-size:22px}
-.right{flex:1;background:#fff2f8;padding:40px;overflow-y:auto}
-.section-title{font-size:24px;color:#B6814C;margin-bottom:15px}
-.location-card{background:white;padding:15px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.06);margin-bottom:30px;max-width:500px}
-.location-card p{font-size:14px;margin-bottom:8px}
-.location-card iframe{height:160px;border-radius:10px}
-.submit-btn{background:#B6814C;color:white;border:none;padding:10px 25px;border-radius:20px;cursor:pointer;font-size:16px}
-.popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);justify-content:center;align-items:center;z-index:1000}
-.popup-content{background:#F2E9E1;padding:30px;border-radius:20px;width:90%;max-width:400px;position:relative;box-shadow:0 8px 25px rgba(143,137,140,0.3)}
-.popup-content h3{margin-bottom:15px;color:#B6814C;text-align:center}
-.popup-content input, .popup-content textarea{width:100%;padding:12px;margin:8px 0;border-radius:12px;border:1px solid #B6814C;background:#fff;color:#8F898C;font-family:inherit}
-.popup-content input:focus, .popup-content textarea:focus{outline:none;border-color:#CEBAA4;box-shadow:0 0 8px rgba(206,186,164,0.5)}
-.popup-content .close{position:absolute;top:12px;right:15px;font-size:24px;cursor:pointer;color:#8F898C}
-.lang-btn{position:absolute;top:20px;left:20px;background:white;border:none;padding:8px 18px;border-radius:20px;cursor:pointer}
-.comment{background:#ffe4ed;padding:12px;border-radius:8px;margin-top:10px}
-.comment strong{color:#B6814C}
-.comment button{margin-left:10px;background:#B6814C;color:white;border:none;padding:5px 10px;border-radius:12px;cursor:pointer;}
-@media(max-width:900px){body{overflow:auto}.container{flex-direction:column}.left,.right{height:auto}}
-  .footer{
-  position: absolute;
-  bottom: 10px;
-  right: 0;
-  left: 0;
-  text-align: center;
-  font-size: 14px;
-  color: #8F898C;
-  background: transparent;
-  padding: 5px 0;
+
+body{
+  font-family:'Cairo',sans-serif;
+  background:#f8f0f4;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
+.container{
+  display:flex;
+  flex:1;
+}
+
+.left{
+  flex:1;
+  background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('img.jpeg') center/cover no-repeat;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:start;
+  padding:40px;
+}
+
+.left h1{
+  font-family:'Playfair Display',serif;
+  font-size:48px;
+  margin-bottom:10px
+}
+
+.left p{
+  font-size:20px;
+  margin-bottom:10px
+}
+
+.countdown{
+  display:flex;
+  gap:15px;
+  margin-top:30px;
+  flex-wrap:wrap;
+  justify-content:center
+}
+
+.time-box{
+  background:white;
+  color:#B6814C;
+  padding:15px;
+  border-radius:12px;
+  min-width:80px;
+  text-align:center
+}
+
+.right{
+  flex:1;
+  background:#fff2f8;
+  padding:15px 40px;
+}
+
+.section-title{
+  font-size:20px;
+  color:#B6814C;
+  margin-bottom:15px
+}
+
+.location-card{
+  background:white;
+  padding:0px 15px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.06);
+  margin-bottom:5px;
+  max-width:600px
+}
+
+.location-card iframe{
+  height:80px;
+  border-radius:10px
+}
+
+.submit-btn{
+  background:#B6814C;
+  color:white;
+  border:none;
+  padding:10px 25px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:16px;
+  font-weight: bolder;
+  font-family: Tahoma, sans-serif;
+}
+
+.comment{
+  background:#ffe4ed;
+  padding:12px;
+  border-radius:8px;
+  margin-top:10px
+}
+
+.pagination{
+  margin-top:15px;
+  text-align:center;
+}
+
+.pagination button{
+  margin:5px;
+  padding:5px 12px;
+  border:none;
+  border-radius:10px;
+  background:#B6814C;
+  color:white;
+  cursor:pointer;
+}
+/* popup */
+.popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);justify-content:center;align-items:center;z-index:1000} 
+.popup-content{background:#F2E9E1;padding:30px;border-radius:20px;width:90%;max-width:400px;position:relative;box-shadow:0 8px 25px rgba(143,137,140,0.3)} 
+.popup-content h3{margin-bottom:15px;color:#B6814C;text-align:center}
+.popup-content input, .popup-content textarea{width:100%;padding:12px;margin:8px 0;border-radius:12px;border:1px solid #B6814C;background:#fff;color:#8F898C;font-family:inherit} 
+.popup-content input:focus, .popup-content textarea:focus{outline:none;border-color:#CEBAA4;box-shadow:0 0 8px rgba(206,186,164,0.5)} 
+.popup-content .close{position:absolute;top:12px;right:15px;font-size:24px;cursor:pointer;color:#8F898C}
+/* Footer */
+.footer{
+  text-align:center;
+  padding:15px 0;
+  font-size:14px;
+  color:#8F898C;
+  background:#fff2f8;
+}
+
+/* Mobile */
 @media(max-width:900px){
-  .footer{
-    position: relative;
-    bottom: auto;
-    margin-top: 20px;
+  .container{
+    flex-direction:column;
   }
+.left{
+  text-align:center;
+
+}
+.countdown{
+  gap:8px;
+  flex-wrap:nowrap;
+}
+time-box{
+  padding:10px;
+  min-width:60px;
+}
 }
 </style>
 </head>
+
 <body>
 
-<button class="lang-btn" onclick="toggleLanguage()">English</button>
-
 <div class="container">
+
   <div class="left">
-    <h1 id="heroTitle">أمجد & مروة</h1>
-    <p id="heroSubtitle">للفرحِ أدعو خيارَ الناسِ قاطبةً💍<br>يومَ السرورِ اجتماعُ الصحبِ في النَّسَبِ💍<br>دامتْ عليكم رياحُ السعدِ عابقةً💍</p>
-    <p id="heroDate">23 مارس 2026 – الساعة 8 مساءً</p>
-    <p>إن شاء الله</p>
+    <p>دعوة زفاف  </p>
+    <h1>أمجد & مروة</h1>
+    <p>لِلْفَرَحِ أَدْعُو خِيَارَ النَّاسِ قَاطِبَةً💍</p>
+    <p>  يَوْمَ السُّرُورِ اجْتِمَاعُ الصَّحْبِ فِي النَّسَبِ💍</p>
+    <p>  دَامَتْ عَلَيْكُمْ رِيَاحُ السَّعْدِ عَابِقَةً💍</p>
+    <p>  بِالطِّيبِ وَالْوَرْدِ أَشْكَالًا مِنَ الذَّهَبِ 💛</p>
+    <p>23 مارس 2026 – الساعة 8 مساءً</p>
+    <p>إن شاءالله</p>
+
     <div class="countdown">
-      <div class="time-box"><h2 id="days">0</h2><span id="daysLabel">يوم</span></div>
-      <div class="time-box"><h2 id="hours">0</h2><span id="hoursLabel">ساعة</span></div>
-      <div class="time-box"><h2 id="minutes">0</h2><span id="minutesLabel">دقيقة</span></div>
-      <div class="time-box"><h2 id="seconds">0</h2><span id="secondsLabel">ثانية</span></div>
+      <div class="time-box"><h2 id="days">0</h2><span>يوم</span></div>
+      <div class="time-box"><h2 id="hours">0</h2><span>ساعة</span></div>
+      <div class="time-box"><h2 id="minutes">0</h2><span>دقيقة</span></div>
+      <div class="time-box"><h2 id="seconds">0</h2><span>ثانية</span></div>
     </div>
   </div>
 
   <div class="right">
+
     <div class="location-card">
-      <h2 class="section-title" id="locationTitle">الموقع 📍</h2>
-      <p id="locationText">قاعة الماسة - المسجد الكبير - كورنيش أسوان</p>
+      <h2 class="section-title">الموقع 📍</h2>
+      <p>قاعة الماسة - المسجد الكبير - كورنيش أسوان</p>
       <iframe src="https://www.google.com/maps?q=قاعة+الماسة+المسجد+الكبير+كورنيش+أسوان&output=embed" width="100%" style="border:0;" loading="lazy"></iframe>
     </div>
 
-    <div class="form-group">
-      <h2 class="section-title" id="memoryTitle">اترك ذكرى 💌</h2>
-      <button class="submit-btn" onclick="openMemoryPopup()">اترك ذكرى</button>
-      <div id="commentsList"></div>
-    </div>
+    <h2 class="section-title">اترك ذكرى 💌</h2>
+    <button class="submit-btn" onclick="openMemoryPopup()">اترك ذكرى</button>
 
-    <div id="memoryPopup" class="popup">
-      <div class="popup-content">
-        <span class="close" onclick="closeMemoryPopup()">&times;</span>
-        <h3>اترك ذكرى 💌</h3>
-        <input type="text" id="popupName" placeholder="الاسم (إجباري)">
-        <textarea id="popupComment" placeholder="اكتب تهنئتك هنا..."></textarea>
-        <button class="submit-btn" onclick="submitMemory()">إرسال</button>
-      </div>
-    </div><footer class="footer">
-  Made with ❤️ by Marwa Mahmoud © 2026
-</footer>
+    <div id="commentsList"></div>
+    <div class="pagination" id="pagination"></div>
+
   </div>
 </div>
+<!-- popup -->
+ <div id="memoryPopup" class="popup"> <div class="popup-content"> <span class="close" onclick="closeMemoryPopup()">&times;</span> <h3>اترك ذكرى 💌</h3> <input type="text" id="popupName" placeholder="الاسم (إجباري)"> <textarea id="popupComment" placeholder="اكتب تهنئتك هنا..."></textarea> <button class="submit-btn" onclick="submitMemory()">إرسال</button> </div> </div>
+<footer class="footer">
+  Made with ❤️ by Marwa Mahmoud © 2026
+</footer>
+
 
 <script>
-// --- LANGUAGE TOGGLE ---
-let isArabic = true;
-function toggleLanguage() {
-  isArabic = !isArabic;
-  document.documentElement.lang = isArabic ? "ar" : "en";
-  document.documentElement.dir = isArabic ? "rtl" : "ltr";
-  document.getElementById("heroSubtitle").innerText = isArabic ?
-    "للفرحِ أدعو خيارَ الناسِ قاطبةً💍يومَ السرورِ اجتماعُ الصحبِ في النَّسَبِ💍دامتْ عليكم رياحُ السعدِ عابقةً💍" :
-    "We're Getting Married 💍";
-  document.getElementById("heroDate").innerText = isArabic ?
-    "23 مارس 2026 – الساعة 8 مساءً" : "23 March 2026 – 8:00 PM";
-  document.getElementById("locationTitle").innerText = isArabic ? "الموقع 📍" : "Location 📍";
-  document.getElementById("memoryTitle").innerText = isArabic ? "اترك ذكرى 💌" : "Leave a Memory 💌";
-  document.querySelector(".lang-btn").innerText = isArabic ? "English" : "العربية";
-}
-
-// --- COUNTDOWN ---
-const weddingDate = new Date("March 23, 2026 20:00:00").getTime();
-setInterval(() => {
-  const now = new Date().getTime();
-  const distance = weddingDate - now;
-  document.getElementById("days").innerText = Math.floor(distance / (1000*60*60*24));
-  document.getElementById("hours").innerText = Math.floor((distance / (1000*60*60)) % 24);
-  document.getElementById("minutes").innerText = Math.floor((distance / (1000*60)) % 60);
-  document.getElementById("seconds").innerText = Math.floor((distance / 1000) % 60);
-}, 1000);
-
-// --- POPUP ---
-function openMemoryPopup() { document.getElementById("memoryPopup").style.display = "flex"; }
-function closeMemoryPopup() { document.getElementById("memoryPopup").style.display = "none"; }
-
 // --- SUPABASE CONFIG ---
-// const SUPABASE_URL = "PUT_YOUR_PROJECT_URL_HERE"; // حطي هنا رابط المشروع
-// const SUPABASE_KEY = "PUT_YOUR_ANON_KEY_HERE";   // حطي هنا ANON KEY
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95dWJmc3BxYW5ieHpmYXR1anp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxMTk4NjUsImV4cCI6MjA4NzY5NTg2NX0.MUuFknNJZsk5NLNNXOMoQHLkumoSzSZjDLS-XyE3wzc";
 const SUPABASE_URL = "https://oyubfspqanbxzfatujzz.supabase.co";
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+// --- ADMIN MODE --- 
+window.isAdmin = false; 
+const ADMIN_PASSWORD = "12345"; 
+function enableAdminMode() { const pass = prompt("ادخلي كلمة سر الإدارة"); 
+if(pass === ADMIN_PASSWORD){ window.isAdmin = true; alert("تم تفعيل وضع الإدارة"); 
+loadComments(); } }
 
-// --- SUBMIT COMMENT ---
-async function submitMemory() {
-  const name = document.getElementById("popupName").value.trim();
-  const message = document.getElementById("popupComment").value.trim();
-  if(!name){alert("الاسم مطلوب"); return;}
-  if(!message){return;}
+let currentPage=1;
+const limit=5;
 
-  await supabaseClient.from("comments").insert([{name,message}]);
-  document.getElementById("popupName").value = "";
-  document.getElementById("popupComment").value = "";
-  closeMemoryPopup();
-  loadComments();
-}
+// Load comments with pagination
+async function loadComments(page=1){
+  currentPage=page;
 
-// --- LOAD COMMENTS ---
-async function loadComments() {
-  const { data, error } = await supabaseClient.from("comments").select("*").order("created_at",{ascending:true});
-  if(error){console.error(error); return;}
-  const list = document.getElementById("commentsList");
-  list.innerHTML = "";
-  data.forEach(comment => {
-    const div = document.createElement("div");
-    div.className = "comment";
-    div.innerHTML = `<strong>${comment.name}</strong>: ${comment.message}`;
+  const from=(page-1)*limit;
+  const to=from+limit-1;
+
+  const {data,error,count} = await supabaseClient
+    .from("comments")
+    .select("*",{count:"exact"})
+    .order("created_at",{ascending:true})
+    .range(from,to);
+
+  if(error){
+    console.error(error);
+    return;
+  }
+
+  const list=document.getElementById("commentsList");
+  list.innerHTML="";
+
+  if(!data || data.length===0){
+    list.innerHTML="<p>لا توجد تعليقات بعد 💌</p>";
+    return;
+  }
+
+  data.forEach(comment=>{
+    const div=document.createElement("div");
+    div.className="comment";
+    div.innerHTML=`<strong>${comment.name}</strong>: ${comment.message}`;
 
     // DELETE BUTTON IF ADMIN
     if(window.isAdmin){
-      const delBtn = document.createElement("button");
-      delBtn.textContent = "حذف";
-      delBtn.onclick = async()=>{ await supabaseClient.from("comments").delete().eq("id", comment.id); loadComments(); }
+      const delBtn=document.createElement("button");
+      delBtn.textContent="حذف";
+      delBtn.onclick=async()=>{
+        await supabaseClient.from("comments").delete().eq("id",comment.id);
+        loadComments(currentPage);
+      };
       div.appendChild(delBtn);
     }
 
     list.appendChild(div);
   });
+
+  renderPagination(count);
 }
 
-// --- ADMIN MODE ---
-window.isAdmin = false;
-const ADMIN_PASSWORD = "12345";
-function enableAdminMode() {
-  const pass = prompt("ادخلي كلمة سر الإدارة");
-  if(pass === ADMIN_PASSWORD){ window.isAdmin = true; alert("تم تفعيل وضع الإدارة"); loadComments(); }
+// --- POPUP --- 
+ function openMemoryPopup() { document.getElementById("memoryPopup").style.display = "flex"; } function closeMemoryPopup() { document.getElementById("memoryPopup").style.display = "none"; }
+
+// Submit from popup
+async function submitMemory(){
+  const name=document.getElementById("popupName").value.trim();
+  const message=document.getElementById("popupComment").value.trim();
+
+  if(!name){ alert("الاسم مطلوب"); return;}
+  if(!message){ alert("اكتب تعليقك"); return;}
+
+  await supabaseClient.from("comments").insert([{name,message}]);
+  document.getElementById("popupName").value="";
+  document.getElementById("popupComment").value="";
+  closeMemoryPopup();
+  loadComments(currentPage);
 }
 
-// --- INIT ---
-loadComments();
-</script>
+// Pagination buttons
+function renderPagination(total){
+  const pages=Math.ceil(total/limit);
+  const container=document.getElementById("pagination");
+  container.innerHTML="";
 
+  for(let i=1;i<=pages;i++){
+    const btn=document.createElement("button");
+    btn.innerText=i;
+    btn.onclick=()=>loadComments(i);
+    if(i===currentPage) btn.style.background="#8F898C";
+    container.appendChild(btn);
+  }
+}
+
+loadComments();</script>
 </body>
-
 </html>
-
-
