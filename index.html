@@ -32,6 +32,25 @@ body{font-family:'Cairo',sans-serif;height:100vh;overflow:hidden;background:#f8f
 .comment strong{color:#B6814C}
 .comment button{margin-left:10px;background:#B6814C;color:white;border:none;padding:5px 10px;border-radius:12px;cursor:pointer;}
 @media(max-width:900px){body{overflow:auto}.container{flex-direction:column}.left,.right{height:auto}}
+  .footer{
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  font-size: 14px;
+  color: #8F898C;
+  background: transparent;
+  padding: 5px 0;
+}
+
+@media(max-width:900px){
+  .footer{
+    position: relative;
+    bottom: auto;
+    margin-top: 20px;
+  }
+}
 </style>
 </head>
 <body>
@@ -73,7 +92,9 @@ body{font-family:'Cairo',sans-serif;height:100vh;overflow:hidden;background:#f8f
         <textarea id="popupComment" placeholder="اكتب تهنئتك هنا..."></textarea>
         <button class="submit-btn" onclick="submitMemory()">إرسال</button>
       </div>
-    </div>
+    </div><footer class="footer">
+  Made with ❤️ by Marwa Mahmoud © 2026
+</footer>
   </div>
 </div>
 
@@ -168,4 +189,5 @@ loadComments();
 </body>
 
 </html>
+
 
