@@ -205,6 +205,13 @@ time-box{
 
 
 <script>
+  / Countdown 
+   const weddingDate = new Date("March 23, 2026 20:00:00").getTime(); 
+   setInterval(()=>{ const now = new Date().getTime(); const distance = weddingDate - now; if(distance < 0){ document.querySelector(".countdown").innerHTML="🎉..الحمدلله تم الزفاف 🎉"; return; }
+   document.getElementById("days").innerText=Math.floor(distance/(1000*60*60*24)); 
+   document.getElementById("hours").innerText=Math.floor((distance/(1000*60*60))%24); 
+   document.getElementById("minutes").innerText=Math.floor((distance/(1000*60))%60); 
+   document.getElementById("seconds").innerText=Math.floor((distance/1000)%60); },1000);
 // --- SUPABASE CONFIG ---
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95dWJmc3BxYW5ieHpmYXR1anp6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxMTk4NjUsImV4cCI6MjA4NzY5NTg2NX0.MUuFknNJZsk5NLNNXOMoQHLkumoSzSZjDLS-XyE3wzc";
 const SUPABASE_URL = "https://oyubfspqanbxzfatujzz.supabase.co";
@@ -303,3 +310,4 @@ function renderPagination(total){
 loadComments();</script>
 </body>
 </html>
+
